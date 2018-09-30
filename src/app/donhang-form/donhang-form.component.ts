@@ -22,7 +22,7 @@ export class DonhangFormComponent implements OnInit {
     private router: Router, private route: ActivatedRoute) {
       this.DonHang = {
         NguoiGui: '',
-        SoDienThoaiNguoiGui: '',DiaChiGui: '',NguoiNhan: '',SoDienThoaiNhan: '',DiaChiNhan: '',GhiChu: '', ThanhTien: ''
+        SoDienThoaiNguoiGui: '',DiaChiGui: '',NguoiNhan: '',SoDienThoaiNhan: '',DiaChiNhan: '',GhiChu: '', ThanhTien: '',cod:''
       };
       this.sub = this.route.params.subscribe(params => {
         this.id = +params['id']; 
@@ -41,6 +41,7 @@ export class DonhangFormComponent implements OnInit {
           this.donhangForm.controls['DiaChiNhan'].setValue(this.DonHang.DiaChiNhan);
           this.donhangForm.controls['GhiChu'].setValue(this.DonHang.GhiChu);
           this.donhangForm.controls['ThanhTien'].setValue(this.DonHang.ThanhTien);
+          this.donhangForm.controls['cod'].setValue(this.DonHang.cod);
         })
         this.donHangCreate = false;
       }else{
@@ -56,6 +57,7 @@ export class DonhangFormComponent implements OnInit {
       DiaChiNhan: ['', [Validators.required]],
       GhiChu: ['', [Validators.required]],
       ThanhTien: ['', [Validators.required]],
+      cod: [''],
     });
     this.kienhangForm = this.formBuilder.group({
       TrongLuong: ['', [Validators.required]],

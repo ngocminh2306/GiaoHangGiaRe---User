@@ -30,6 +30,7 @@
           <th>Số điện thoại nhận</th>
           <th>Ghi chú</th>
           <th>Thành tiền</th>
+          <th>COD</th>
         </tr>
       </thead>
       <tbody>
@@ -42,6 +43,8 @@
           <td>{{item.SoDienThoaiNguoiNhan}}</td>
           <td>{{item.GhiChu}}</td>
           <td>{{item.ThanhTien}}</td>
+          <td *ngIf="!item.cod">Không COD</td>
+          <td *ngIf="item.cod">{{item.cod}} (VNĐ)</td>
           <td>
             <a [routerLink]="['/chittiet-donhang', item.MaDonHang]" class="btn btn-warning">Chi tiết</a>
           </td>
